@@ -10,6 +10,7 @@ class CommentApp extends Component {
     }
   }
   handleSubmitComment(comment){
+    console.log(1111);
     if(!comment) return;
     if(!comment.username) return alert('请输入用户名');
     if(!comment.content) return alert('请输入评论内容');
