@@ -3,6 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+    constructor(){
+    super();
+    console.log('constructor');
+  }
+  componentWillMount(){
+    console.log('will mount');
+  }
+  componentDidMount(){
+    console.log('did mount');
+  }
+  componentWillUnmount(){
+    console.log('will un mount');
+  }
   render() {
     return (
       <div className="App">
@@ -17,6 +30,63 @@ class App extends Component {
     );
   }
 }
+
+
+//做一个百分比换算器，需要你完成三个组件：Input：封装了原生的input，可以输入任意数字
+//PercentageShower：实时 显示 Input 中的数字内容，但是需要把它转换成百分比，例如 <Input /> 输入的是 0.1，那么就要显示 10.00%，保留两位小数。
+//PercentageApp：组合上述两个组件。
+
+// class Input extends Component {
+//   constructor(){
+//     super();
+//     this.state = {
+//       percent:'',
+//     }
+//   }
+//   handlePercentChange(e){
+//     console.log(e.target.value);
+//     this.setState({percent:e.target.value},()=>{
+//       const percent = this.state.percent;
+//       this.props.onSubmit(percent);
+//     });
+//   }
+//   render () {
+//     return (
+//       <div>
+//         <input onChange={this.handlePercentChange.bind(this)} type='number' max="1" />
+//       </div>
+//     )
+//   }
+// }
+
+// class PercentageShower extends Component {
+//   render () {
+//     const {percent} = this.props;
+//     return (
+//       <div>{percent}</div>
+//     )
+//   }
+// }
+
+// class PercentageApp extends Component {
+//   constructor(){
+//     super();
+//     this.state = {
+//       realPercent:''
+//     }
+//   }
+//   handleSubmitPercent(val){
+//     this.setState({realPercent:(val*100).toFixed(2)+'%'})
+//   }
+//   render () {
+//     return (
+//       <div>
+//         <Input onSubmit={this.handleSubmitPercent.bind(this)}></Input>
+//         <PercentageShower percent={this.state.realPercent}></PercentageShower>
+//       </div>
+//     )
+//   }
+// }
 
     //循环生成列表 
 // class Lesson extends Component {
