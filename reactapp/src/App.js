@@ -2,10 +2,51 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// class App extends Component {
+//     constructor(){
+//     super();
+//     console.log('constructor');
+//   }
+//   componentWillMount(){
+//     console.log('will mount');
+//   }
+//   componentDidMount(){
+//     console.log('did mount');
+//   }
+//   componentWillUnmount(){
+//     console.log('will un mount');
+//   }
+//   render() {
+//     return (
+//       <div className="App">
+//         <header className="App-header">
+//           <img src={logo} className="App-logo" alt="logo" />
+//           <h1 className="App-title">Welcome to React</h1>
+//         </header>
+//         <p className="App-intro">
+//           To get started, edit <code>src/App.js</code> and save to reload.
+//         </p>
+//       </div>
+//     );
+//   }
+// }
+
+  /**
+   * 异步加载数据demo
+   */
 class App extends Component {
     constructor(){
     super();
+    this.state = {
+      content:""
+    }
     console.log('constructor');
+  }
+  refresh(){
+    this.setState({content:'数据加载中...'})
+    setTimeout(()=>{
+      this.setState({content:'patrick'})
+    },100)
   }
   componentWillMount(){
     console.log('will mount');
@@ -19,13 +60,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className='post-content'>{this.state.content}</div>
+          <button onClick={this.refresh.bind(this)}>刷新</button>
       </div>
     );
   }
