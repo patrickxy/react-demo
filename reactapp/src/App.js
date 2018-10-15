@@ -30,6 +30,54 @@ class App extends Component {
     );
   }
 }
+// dangerouslySetHTML 和 style 属性
+/**
+ * 覆盖默认样式
+ */
+// dangerouslySetHTML
+
+// class Editor extends Component {
+//   constructor() {
+//     super()
+//     this.state = {
+//       content: '<h1>React.js 小书</h1>'
+//     }
+//   }
+
+//   render () {
+//     return (
+//       <div className='editor-wrapper'  dangerouslySetInnerHTML={{__html:this.state.content}}>
+//       </div>
+//     )
+//   }
+// }
+
+// style
+  //<h1 style={{fontSize: '12px', color: this.state.color}}>React.js 小书</h1>
+
+  // const getDefaultStyledPost = (defaultStyle) => {
+  //   return (
+  //     class Post extends React.Component {
+  //       render() {
+  //         const style = {...defaultStyle, ...this.props.style}
+  //         return (
+  //           <p style={style}>dwdwd</p>
+  //         )
+  //       }
+  //     }
+  //   )
+  // }
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * 黑色边框的容器组件

@@ -29,3 +29,8 @@ class CommentApp extends Component {
 }
 
 export default CommentApp
+
+// 功能点自动聚焦到评论框
+    // CommentApp  1.ref={(textarea)=>this.textarea = textarea}
+    // CommentApp  2.componentDidMount(){this.textarea.focus();}
+// 持久化用户名  在姓名输入框失去焦点的时候 存储username 到localstoarge中 加载的时候获取并显示
