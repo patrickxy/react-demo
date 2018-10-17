@@ -34,3 +34,9 @@ export default CommentApp
     // CommentApp  1.ref={(textarea)=>this.textarea = textarea}
     // CommentApp  2.componentDidMount(){this.textarea.focus();}
 // 持久化用户名  在姓名输入框失去焦点的时候 存储username 到localstoarge中 加载的时候获取并显示
+    //onBlur={this.handleUsernameBlur.bind(this)}
+    //handleUsernameBlur(e){this._saveUsername(e.target.value);}
+    //_saveUsername(name){window.localStorage.setItem('username',name);}
+    //_loadUsername(){if(window.localStorage.getItem('username')){this.setState({username:window.localStorage.getItem('username')});}}
+    //componentWillMount(){this._loadUsername();}
+//持久化评论 与持久化用户名类似
