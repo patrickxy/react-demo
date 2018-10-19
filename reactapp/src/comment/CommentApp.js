@@ -16,7 +16,34 @@ class CommentApp extends Component {
     this.state.commentList.push(comment)
     this.setState({
       commentList: this.state.commentList
+    },()=>{
+      this._saveComments();
     })
+  }
+  _saveComments(){
+    window.localStorage.setItem('comments',JSON.stringify(this.state.commentList))
+  }
+  _loadComments(){
+    let comments = JSON.parse(window.localStorage.getItem('comments'));
+    if(comments){
+      this.setState({commentList:comments})
+    }
+  }
+  testFunc(url){
+    console.log(url);
+    return (url1)=>{
+      console.log(url1);
+    }
+    // const loadAndFresh = (url)=>{
+    //     console.log(url);
+    //   (url1)=>{
+    //     console.log(url1);
+    //   }
+    // }
+  }
+  componentWillMount(){
+    this._loadComments();
+    this.testFunc('111')('222');
   }
   render() {
     return (
@@ -40,3 +67,13 @@ export default CommentApp
     //_loadUsername(){if(window.localStorage.getItem('username')){this.setState({username:window.localStorage.getItem('username')});}}
     //componentWillMount(){this._loadUsername();}
 //持久化评论 与持久化用户名类似
+
+// 显示评论发布时间
+  // commment this.state = {countTime:''}
+  // commment this._updateTime();
+  //处理评论 <p dangerouslySetInnerHTML={{__html: this._getProcessedContent(comment.content)}} />
+  //把 `` 包含的内容用 <code> 包裹起来   content.replace(/`([\S\s]+?)`/g, '<code>$1</code>')
+  //把 `` 包含的内容用 <code> 包裹起来 防止xxs攻击
+  // content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;").replace(/`([\S\s]+?)`/g, '<code>$1</code>')
+
+// 高阶组件  高阶组件是一个函数，传入一个组件返回一个新的组件

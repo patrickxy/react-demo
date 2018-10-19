@@ -100,5 +100,6 @@ body {
 
 .comment p {
   margin: 0;
+  display: block;
   /*text-indent: 2em;*/
 }
