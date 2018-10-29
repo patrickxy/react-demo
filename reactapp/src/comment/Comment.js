@@ -7,7 +7,7 @@ export default class Comment extends Component{
         }
     }
     componentWillMount(){
-        setInterval(()=>{
+        this._timer = setInterval(()=>{
             this._updateTime();
         },5000)
         this._updateTime();
@@ -27,9 +27,14 @@ export default class Comment extends Component{
         }
         this.setState({countTime:'发布于'+timeStr+'以前'});
     }
-    deleteComment(index){
-
+    handleDeleteComment(){
+        if(this.props.onDeleteComment){
+            this.props.onDeleteComment(this.props.index);
+        }
     }
+    componentWillUnmount () {
+        clearInterval(this._timer)
+      }
     // componentDidMount(){
     //     this.state.countTime = new Date().getTime()-new Date(this.props.createTime).getTime()
     // }
@@ -42,7 +47,7 @@ export default class Comment extends Component{
                 </div>
                     <p>{comment.content}</p>
                     <span>{this.state.countTime}</span>
-                    <span className='comment-delete'>
+                    <span onClick={this.handleDeleteComment.bind(this)} className='comment-delete'>
                         删除
                     </span>
             </div>

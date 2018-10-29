@@ -41,6 +41,13 @@ class CommentApp extends Component {
     //   }
     // }
   }
+  handleDeleteComment (index) {
+    const comments = this.state.commentList;
+    console.log(comments);
+    comments.splice(index, 1)
+    this.setState({ comments })
+    this._saveComments(comments)
+  }
   componentWillMount(){
     this._loadComments();
     this.testFunc('111')('222');
@@ -49,7 +56,7 @@ class CommentApp extends Component {
     return (
       <div className="wrapper">
         <CommentInput onSubmit={this.handleSubmitComment.bind(this)} />
-        <CommentList comments = {this.state.commentList} />
+        <CommentList comments = {this.state.commentList} onDeleteComment={this.handleDeleteComment.bind(this)} />
       </div>
     )
   }
@@ -67,7 +74,13 @@ export default CommentApp
     //_loadUsername(){if(window.localStorage.getItem('username')){this.setState({username:window.localStorage.getItem('username')});}}
     //componentWillMount(){this._loadUsername();}
 //持久化评论 与持久化用户名类似
-
+// 删除评论  （清除定时器）
+  // componentWillMount(){
+  //   this._timer = setInterval(()=>{
+  //       this._updateTime();
+  //   },5000)
+  //   this._updateTime();
+  // }
 // 显示评论发布时间
   // commment this.state = {countTime:''}
   // commment this._updateTime();
