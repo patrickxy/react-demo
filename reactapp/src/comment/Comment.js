@@ -32,6 +32,17 @@ export default class Comment extends Component{
             this.props.onDeleteComment(this.props.index);
         }
     }
+    _getProcessedContent(content){
+        let s= content
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;")
+        .replace(/`([\S\s]+?)`/g, '<code>$1</code>')
+        console.log(s);
+        return s;
+    }
     componentWillUnmount () {
         clearInterval(this._timer)
       }
@@ -45,7 +56,7 @@ export default class Comment extends Component{
                 <div className='comment-user'>
                     <span>{comment.username} </span>：
                 </div>
-                    <p>{comment.content}</p>
+                    <p dangerouslySetInnerHTML={{__html:this._getProcessedContent(comment.content)}}></p>
                     <span>{this.state.countTime}</span>
                     <span onClick={this.handleDeleteComment.bind(this)} className='comment-delete'>
                         删除

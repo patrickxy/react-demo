@@ -64,6 +64,8 @@ class CommentApp extends Component {
 
 export default CommentApp
 
+// dangerouslySetInnerHTML={{__html: this.state.content}} 
+
 // 功能点自动聚焦到评论框
     // CommentApp  1.ref={(textarea)=>this.textarea = textarea}
     // CommentApp  2.componentDidMount(){this.textarea.focus();}
@@ -84,9 +86,11 @@ export default CommentApp
 // 显示评论发布时间
   // commment this.state = {countTime:''}
   // commment this._updateTime();
+
   //处理评论 <p dangerouslySetInnerHTML={{__html: this._getProcessedContent(comment.content)}} />
   //把 `` 包含的内容用 <code> 包裹起来   content.replace(/`([\S\s]+?)`/g, '<code>$1</code>')
   //把 `` 包含的内容用 <code> 包裹起来 防止xxs攻击
   // content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;").replace(/`([\S\s]+?)`/g, '<code>$1</code>')
 
 // 高阶组件  高阶组件是一个函数，传入一个组件返回一个新的组件
+// reducer 就是用来描述数据的形态和相应的变更
