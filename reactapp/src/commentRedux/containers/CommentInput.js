@@ -53,7 +53,6 @@ CommentInputContainer.propTypes = {
   onSubmit: PropTypes.func
 }
 
-
 const mapStateToProps = (state) => {
   return {
     comments: state.comments

@@ -23,4 +23,4 @@ ReactDOM.render(
     <CommentApp />
   </Provider>,
   document.getElementById('root')
-);
+)
