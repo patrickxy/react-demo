@@ -1,9 +1,33 @@
 import React from 'react'
-// import menuConfig from './../../antdConfig/menuConfig'
+import menuConfig from './../../antdConfig/menuConfig'
 import './index.less'
-import { Menu, Icon } from 'antd'
+import { Menu } from 'antd'
+// import { Icon } from 'antd'
 const SubMenu = Menu.SubMenu
 export default class NavLeft extends React.Component {
+  componentWillMount() {
+    const menuTreeNode = this.renderMenu(menuConfig)
+    this.setState({ menuTreeNode })
+  }
+  /**
+   * 菜单渲染-递归
+   */
+  renderMenu = data => {
+    return data.map(item => {
+      if (item.children) {
+        return (
+          <SubMenu title={item.title} key={item.key}>
+            {this.renderMenu(item.children)}
+          </SubMenu>
+        )
+      }
+      return (
+        <Menu.Item key={item.key} title={item.title}>
+          {item.title}
+        </Menu.Item>
+      )
+    })
+  }
   render() {
     return (
       <div>
@@ -11,24 +35,7 @@ export default class NavLeft extends React.Component {
           <img src="/assets/logo-ant.svg" alt="logo" />
           <h1>patrick ms</h1>
         </div>
-        <Menu theme="dark">
-          <SubMenu
-            key="sub2"
-            title={
-              <span>
-                <Icon type="appstore" />
-                <span>Navigation Two</span>
-              </span>
-            }
-          >
-            <Menu.Item key="5">Option 5</Menu.Item>
-            <Menu.Item key="6">Option 6</Menu.Item>
-            <SubMenu key="sub3" title="Submenu">
-              <Menu.Item key="7">Option 7</Menu.Item>
-              <Menu.Item key="8">Option 8</Menu.Item>
-            </SubMenu>
-          </SubMenu>
-        </Menu>
+        <Menu theme="dark">{this.state.menuTreeNode}</Menu>
       </div>
     )
   }
