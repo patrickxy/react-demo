@@ -1,18 +1,19 @@
 // antd 主页面程序
 import React from 'react'
 import { Row, Col } from 'antd'
-import Header from './pages/components/Header'
-import Footer from './pages/components/Footer'
-import NavLeft from './pages/components/NavLeft'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import NavLeft from './components/NavLeft'
+import './pages/style/antd/common.less'
 export default class Admin extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <Row>
-          <Col span={3}>
+          <Col span={3} className="nav-left">
             <NavLeft />
           </Col>
-          <Col span={21}>
+          <Col span={21} className="main">
             <Header />
             <Footer />
           </Col>
