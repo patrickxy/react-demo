@@ -21,8 +21,8 @@ export default function (state, action) {
       // 删除评论
       return {
         comments: [
-          ...state.comments.slice(0, action.commentIndex),
-          ...state.comments.slice(action.commentIndex + 1)
+          ...state.comments.slice(0, action.commentIndex), //取要删除的评论的前面所有项
+          ...state.comments.slice(action.commentIndex + 1) //取要删除的评论的后面所有项 组成新的数组
         ]
       }
     default:
