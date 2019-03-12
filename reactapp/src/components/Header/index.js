@@ -18,7 +18,6 @@ export default class Header extends React.Component {
         <Row className="header-top">
           <Col span="24">
             <span>欢迎,{this.state.username}</span>
-            <span className="logout">退出</span>
             <a className="logout">退出</a>
           </Col>
         </Row>
