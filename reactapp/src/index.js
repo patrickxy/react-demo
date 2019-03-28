@@ -34,8 +34,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 // import Life from './pages/demo/Life'
 // import Admin from './admin'
-import Home from './pages/router_demo/router1/Home'
+// import Home from './pages/router_demo/router1/Home'
+import Router from './pages/router_demo/router2/router'
 import registerServiceWorker from './registerServiceWorker'
 
-ReactDOM.render(<Home />, document.getElementById('root'))
+ReactDOM.render(<Router />, document.getElementById('root'))
 registerServiceWorker()
