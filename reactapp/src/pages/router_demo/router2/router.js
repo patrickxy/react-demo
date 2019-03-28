@@ -1,2 +1,7 @@
 import React from 'react'
-export default class IRouter extends React.Component {}
+import { HashRouter as Router, Route, Link } from 'react-router-dom'
+export default class IRouter extends React.Component {
+  render() {
+    return {}
+  }
+}
