@@ -10,7 +10,7 @@ export default class Home extends React.Component {
         <div>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/main">Home</Link>
             </li>
             <li>
               <Link to="/about">About</Link>
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
             </li>
           </ul>
           <hr />
-          <Route path="/" component={Main} exact />
+          <Route path="/main" component={Main} exact />
           <Route path="/about" component={About} />
           <Route path="/topics" component={Topic} />
         </div>
