@@ -1,33 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
 
 class App extends Component {
-    constructor(){
-    super();
-    console.log('constructor');
+  constructor() {
+    super()
+    console.log('constructor')
   }
-  componentWillMount(){
-    console.log('will mount');
+  componentWillMount() {
+    console.log('will mount')
   }
-  componentDidMount(){
-    console.log('did mount');
+  componentDidMount() {
+    console.log('did mount')
   }
-  componentWillUnmount(){
-    console.log('will un mount');
+  componentWillUnmount() {
+    console.log('will un mount')
   }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        {this.props.children}
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        </p> */}
       </div>
-    );
+    )
   }
 }
 // dangerouslySetHTML 和 style 属性
@@ -53,31 +54,20 @@ class App extends Component {
 // }
 
 // style
-  //<h1 style={{fontSize: '12px', color: this.state.color}}>React.js 小书</h1>
+//<h1 style={{fontSize: '12px', color: this.state.color}}>React.js 小书</h1>
 
-  // const getDefaultStyledPost = (defaultStyle) => {
-  //   return (
-  //     class Post extends React.Component {
-  //       render() {
-  //         const style = {...defaultStyle, ...this.props.style}
-  //         return (
-  //           <p style={style}>dwdwd</p>
-  //         )
-  //       }
-  //     }
-  //   )
-  // }
-
-
-
-
-
-
-
-
-
-
-
+// const getDefaultStyledPost = (defaultStyle) => {
+//   return (
+//     class Post extends React.Component {
+//       render() {
+//         const style = {...defaultStyle, ...this.props.style}
+//         return (
+//           <p style={style}>dwdwd</p>
+//         )
+//       }
+//     }
+//   )
+// }
 
 /**
  * 黑色边框的容器组件
@@ -126,9 +116,9 @@ class App extends Component {
 //   }
 // }
 
-  /**
-   * 异步加载数据demo
-   */
+/**
+ * 异步加载数据demo
+ */
 // class App extends Component {
 //     constructor(){
 //     super();
@@ -161,7 +151,6 @@ class App extends Component {
 //     );
 //   }
 // }
-
 
 //做一个百分比换算器，需要你完成三个组件：Input：封装了原生的input，可以输入任意数字
 //PercentageShower：实时 显示 Input 中的数字内容，但是需要把它转换成百分比，例如 <Input /> 输入的是 0.1，那么就要显示 10.00%，保留两位小数。
@@ -219,12 +208,12 @@ class App extends Component {
 //   }
 // }
 
-    //循环生成列表 
+//循环生成列表
 // class Lesson extends Component {
 //   render(){
 //     const { lesson } = this.props
 //     return(
-    
+
 //     <div onClick={() => console.log(`${this.props.index} - ${lesson.title}`)}>
 //     <h1>{lesson.title}</h1>
 //     <p>{lesson.description}</p></div>
@@ -256,7 +245,7 @@ class App extends Component {
 //     return (
 //       <div>
 //           {N>0?<span>有({N})条未读消息</span>:<span>没有未读消息</span>}
-//       </div> 
+//       </div>
 //     )
 //   }
 
@@ -269,11 +258,11 @@ class App extends Component {
 //     console.log('bark');
 //     this.run();
 //   }
-  
+
 //   run () {
 //     console.log('run')
 //   }
-  
+
 //   render () {
 //     return (<div onClick={this.bark.bind(this)}>DOG</div>)
 //   }
@@ -325,7 +314,7 @@ class App extends Component {
 //   render(){
 //     const { lesson } = this.props
 //     return(
-    
+
 //     <div onClick={() => console.log(`${this.props.index} - ${lesson.title}`)}>
 //     <h1>{lesson.title}</h1>
 //     <p>{lesson.description}</p></div>
@@ -351,5 +340,4 @@ class App extends Component {
 //   }
 // }
 
-
-export default App;
+export default App
