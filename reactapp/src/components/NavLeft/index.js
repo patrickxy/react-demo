@@ -6,9 +6,13 @@ import { NavLink } from 'react-router-dom'
 // import { Icon } from 'antd'
 const SubMenu = Menu.SubMenu
 export default class NavLeft extends React.Component {
+  state = {
+    currentKey: ''
+  }
   componentWillMount() {
+    let currentKey = window.location.hash.replace(/#|\?.*s/g, '')
     const menuTreeNode = this.renderMenu(menuConfig)
-    this.setState({ menuTreeNode })
+    this.setState({ menuTreeNode, currentKey })
   }
   /**
    * 菜单渲染-递归
@@ -36,7 +40,9 @@ export default class NavLeft extends React.Component {
           <img src="/assets/logo-ant.svg" alt="logo" />
           <h1>patrick ms</h1>
         </div>
-        <Menu theme="dark">{this.state.menuTreeNode}</Menu>
+        <Menu theme="dark" selectedkeys={this.state.currentKey}>
+          {this.state.menuTreeNode}
+        </Menu>
       </div>
     )
   }

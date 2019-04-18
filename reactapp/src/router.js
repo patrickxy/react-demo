@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import App from './App'
 import Login from './pages/login'
 import Admin from './admin'
@@ -12,6 +12,7 @@ export default class Irouter extends React.Component {
       <HashRouter>
         {/* 根组件 */}
         <App>
+          <Route path="/" exact render={() => <Redirect to="/admin/home" />} />
           <Route path="/login" component={Login} />
           <Route
             path="/admin"
@@ -20,6 +21,7 @@ export default class Irouter extends React.Component {
                 <Switch>
                   <Route path="/admin/home" component={Home} />
                   <Route path="/admin/ui/buttons" component={Buttons} />
+                  <Route path="/admin/ui/loading" component={Buttons} />
                   <Route component={NotMatch} />
                 </Switch>
               </Admin>
