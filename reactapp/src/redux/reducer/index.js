@@ -17,7 +17,6 @@ export default (state = initState, action) => {
         ...state,
         menuName: action.menuName
       }
-      break
     }
     default:
       break
